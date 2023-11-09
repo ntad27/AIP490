@@ -1,6 +1,8 @@
 # AIP490
 
-## Dataset
+## Data preparation
 ## Inference
-## Acknowledgements
+## Training
+## Testing
 ## Citation
+## Acknowledgements
