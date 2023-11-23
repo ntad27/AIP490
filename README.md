@@ -15,7 +15,7 @@ According to the explanation from the authors, there are 6 steps for getting all
 6. Human Agnostic
 
 ## Inference
-We reproduced all of the preprocessing steps on Google Colab, please check the following notebook for more details.
+We reproduced all of the preprocessing steps on Google Colab, please check the following notebook for more details
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
