@@ -8,7 +8,7 @@ To download the preprocessed dataset, please check the following [link](https://
 ## Inference
 Here is the [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo.
 
-We used [Anvil](https://anvil.works/) to build our web demo so you need to run the following notebook so that the web can work
+We used [Anvil](https://anvil.works/) to build our web demo so you need to run the following notebook so that the web can work smoothly 
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
