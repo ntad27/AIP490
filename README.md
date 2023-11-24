@@ -22,15 +22,15 @@ We used [Anvil](https://anvil.works/) to build the web app demo, please check th
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
-## Training
-### Train try-on condition generator
+## Train try-on condition generator
 
-### Train try-on image generator
+## Train try-on image generator
+```
+python train_generator.py --name test --cuda {True} --gpu_ids {gpu_ids} --fp16 --tocg_checkpoint {condition generator ckpt path} --occlusion --dataroot {data_path}
+```
 
 To use "--fp16" option, you should install the [apex](https://github.com/NVIDIA/apex.git) library.
-
 
 ## Acknowledgements
 - https://github.com/sangyun884/HR-VITON
 - https://github.com/shadow2496/VITON-HD
-- 
