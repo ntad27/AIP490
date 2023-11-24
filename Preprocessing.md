@@ -1,6 +1,9 @@
 # Data preprocessing
 
-According to the explanation from the authors in [Preprocessing.md](https://github.com/sangyun884/HR-VITON/blob/main/Preprocessing.md). At least 6 steps are needed for getting all the required inputs of the model. Thanks to this [detailed instructions](https://github.com/sangyun884/HR-VITON/issues/45), we have reproduced all of the required preprocessing steps. 
+According to the explanation from the authors in [Preprocessing.md](https://github.com/sangyun884/HR-VITON/blob/main/Preprocessing.md). At least 6 steps are needed for getting all the required inputs of the model. Thanks to this [detailed instructions](https://github.com/sangyun884/HR-VITON/issues/45), we have reproduced all of the required preprocessing steps.
+
+We've added one more preprocessing step to get better try-on results. Please check the following notebook for more details 
+
 
 ## 1. Remove background
 ## 2. OpenPose
