@@ -27,7 +27,7 @@ We used [Anvil](https://anvil.works/) to build the web app demo, please check th
 
 ### Train try-on image generator
 
-To use "--fp16" option, you should install the [apex](git clone https://github.com/NVIDIA/apex.git) library.
+To use "--fp16" option, you should install the [apex](https://github.com/NVIDIA/apex.git) library.
 
 
 ## Acknowledgements
