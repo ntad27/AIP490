@@ -14,8 +14,9 @@ Please check the following notebook if you want to try on your own data
 
 ## 1. Remove background
 ## 2. OpenPose
-### 1. Install OpenPose
-
+(1) Install OpenPose
+(2) Get all needed models
+(3) Run
 ## 3. DensePose
 ## 4. Cloth Mask
 ## 5. Human Parse
