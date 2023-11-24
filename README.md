@@ -1,9 +1,13 @@
-# AIP490
+# AIP490 - Virtual Shirt Fitting Model Based on Deep Learning and Computer Vision
 
 ## Dataset
 We train and evaluate our model using the dataset from [HR-VITON — Official PyTorch Implementation](https://drive.google.com/file/d/11d1IKZ-jsK9mx0BSQmxrEqLxAA00C3IO/view?usp=drive_link).
 
-To download the preprocessed dataset, please check the following [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing).
+To download the datasets, please check the following links:
+- Our preprocessed dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing).
+- Authors' preprocessed dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing).
+
+If you want to know more about how we preprocess the data, please check the [Preprocessing.md]()
 
 ## Inference
 Here is the [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo.
