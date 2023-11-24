@@ -17,14 +17,18 @@ Here are the download links for each model checkpoint:
 - Try-on image generator: [link](https://drive.google.com/file/d/1LBkpO5HO3KYUGSXU_SNeQfWOarUh5lTO/view?usp=sharing)
 - We assume that you have downloaded all of the checkpoints into `./eval_models/weights/v0.1`.
 
-We used [Anvil](https://anvil.works/) to build the web app demo, please check the following notebook for more details 
+We used [Anvil](https://anvil.works/) to build the web app demo, please check the following notebook for detailed instructions 
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ## Training
 ### Train try-on condition generator
+
 ### Train try-on image generator
+
+To use "--fp16" option, you should install the [apex](git clone https://github.com/NVIDIA/apex.git) library.
+
 
 ## Acknowledgements
 - https://github.com/sangyun884/HR-VITON
