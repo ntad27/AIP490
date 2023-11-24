@@ -9,6 +9,9 @@ Please check the following notebook if you want to try on your own data
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+> [!NOTE]
+> We reproduced all of the preprocessing steps on the above Colab. Please check the notebook for more information.
+
 ## 1. Remove background
 ## 2. OpenPose
 ## 3. DensePose
