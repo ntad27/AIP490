@@ -7,7 +7,7 @@ To download the datasets, please check the following links:
 - Our preprocessed dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing)
 - Authors' preprocessed dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
 
-If you want to know more about how we preprocess the data, please check the [Preprocessing.md](https://github.com/ntad27/AIP490/blob/main/Preprocessing.md).
+If you want to know more about how we preprocess the data, please check the [Preprocessing.md](https://github.com/ntad27/AIP490/blob/main/Preprocessing.md)
 
 ## Inference
 Here is the [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo.
