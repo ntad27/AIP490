@@ -12,14 +12,14 @@ We assume that you have downloaded it into `./data`.
 If you want to know more about how we preprocess the data, please check the [Preprocessing.md](https://github.com/ntad27/AIP490/blob/main/Preprocessing.md)
 
 ## Inference
-Here is the [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo.
+Here are the download links for each model checkpoint:
+- Try-on condition generator: [link](https://drive.google.com/file/d/1l81F7eShSg5mOorpwY5xEWla06KaQ76Y/view?usp=sharing).
+- Try-on image generator: [link]().
 
-We used [Anvil](https://anvil.works/) to build our web demo so you need to run the following notebook so that the web can work 
+Please follow this [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo. We used [Anvil](https://anvil.works/) to build our web demo so you need to run the following notebook so that the web can work 
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
-
-For more details about how to turn a Google Colab Notebook into a web app, you can check this [link](https://anvil.works/learn/tutorials/google-colab-to-web-app).
 
 ## Training
 ## Testing
