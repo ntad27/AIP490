@@ -10,10 +10,12 @@ Please check the following notebook if you want to try on your own data
 </a>
 
 > [!NOTE]
-> We reproduced all of the preprocessing steps on the above Colab. Please check the notebook for more information.
+> We reproduced all of the preprocessing steps on the above Colab. The instructions below will show you how to preprocess the data step by step.
 
 ## 1. Remove background
 ## 2. OpenPose
+### 1. Install OpenPose
+
 ## 3. DensePose
 ## 4. Cloth Mask
 ## 5. Human Parse
