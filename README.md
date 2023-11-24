@@ -13,8 +13,8 @@ If you want to know more about how we preprocess the data, please check the [Pre
 
 ## Inference
 Here are the download links for each model checkpoint:
-- Try-on condition generator: [link](https://drive.google.com/file/d/1l81F7eShSg5mOorpwY5xEWla06KaQ76Y/view?usp=sharing).
-- Try-on image generator: [link]().
+- Try-on condition generator: [link](https://drive.google.com/file/d/1l81F7eShSg5mOorpwY5xEWla06KaQ76Y/view?usp=sharing)
+- Try-on image generator: [link](https://drive.google.com/file/d/1LBkpO5HO3KYUGSXU_SNeQfWOarUh5lTO/view?usp=sharing)
 
 Please follow this [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo. We used [Anvil](https://anvil.works/) to build it so you need to run the following notebook first so that the web can work smoothly 
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
@@ -22,7 +22,9 @@ Please follow this [link](https://virtual-shirt-fitting.anvil.app/) for the web 
 </a>
 
 ## Training
-## Testing
+### Train try-on condition generator
+### Train try-on image generator
+
 ## Acknowledgements
 - https://github.com/sangyun884/HR-VITON
 - https://github.com/shadow2496/VITON-HD
