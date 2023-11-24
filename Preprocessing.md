@@ -54,9 +54,13 @@ if not exists(project_name):
     f.close()
   !cd openpose && rm -rf build || true && mkdir build && cd build && cmake .. -DUSE_CUDNN=OFF && make -j`nproc`
 ```
-(2) Get all needed models
+(2) Get all needed models then put them in `./openpose/models`. You can get all it from this [link](https://drive.google.com/file/d/15Ir-yP6dYupibzO7sJCBEyWy9Y0AdZFR/view?usp=sharing).
 
 (3) Run
+```
+!./build/examples/openpose/openpose.bin --image_dir {image_path} --hand --disable_blending --display 0 --write_json {json_path} --write_images {img_path} --num_gpu 1 --num_gpu_start 0
+```
+
 ## 3. DensePose
 ## 4. Cloth Mask
 ## 5. Human Parse
