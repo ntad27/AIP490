@@ -16,7 +16,7 @@ Here are the download links for each model checkpoint:
 - Try-on condition generator: [link](https://drive.google.com/file/d/1l81F7eShSg5mOorpwY5xEWla06KaQ76Y/view?usp=sharing).
 - Try-on image generator: [link]().
 
-Please follow this [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo. We used [Anvil](https://anvil.works/) to build our web demo so you need to run the following notebook so that the web can work 
+Please follow this [link](https://virtual-shirt-fitting.anvil.app/) for the web app demo. We used [Anvil](https://anvil.works/) to build it so you need to run the following notebook first so that the web can work smoothly 
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
