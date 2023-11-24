@@ -23,10 +23,13 @@ We used [Anvil](https://anvil.works/) to build the web app demo, please check th
 </a>
 
 ## Train try-on condition generator
+```
+python train_condition.py --cuda {True} --gpu_ids {gpu_ids} --Ddownx2 --Ddropout --lasttvonly --interflowloss --occlusion
+```
 
 ## Train try-on image generator
 ```
-python train_generator.py --name test --cuda {True} --gpu_ids {gpu_ids} --fp16 --tocg_checkpoint {condition generator ckpt path} --occlusion --dataroot {data_path}
+python train_generator.py --cuda {True} --name test -b 4 -j 8 --gpu_ids {gpu_ids} --fp16 --tocg_checkpoint {condition generator ckpt path} --occlusion --dataroot {data_path}
 ```
 
 To use "--fp16" option, you should install the [apex](https://github.com/NVIDIA/apex.git) library.
