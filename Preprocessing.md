@@ -62,6 +62,8 @@ if not exists(project_name):
 ```
 Then JSON files will be saved under `../json_path` and images will be saved under `../img_path`.
 
+The image result looks like
+
 ## 3. DensePose
 
 
