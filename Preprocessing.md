@@ -23,7 +23,7 @@ This is our additional step to improve the model's accuracy. We used the transpa
 (2) Run
 > [!IMPORTANT]
 > Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing) and paste its path in `ckpt={checkpoint_path}` before running the below code.
-> Change the path of `input_folder` and `output_folder` when removing cloth's background
+> Change the path of `input_folder` and `output_folder` when removing cloth's background.
 
 ```
 import cv2
@@ -56,6 +56,8 @@ for filename in os.listdir(input_folder):
 
 print("Finished.")
 ```
+
+We've tried other methods but we found out this one gave the best results and was the easiest one to process. The package has some other usages, more details can be found at [transparent-background](https://github.com/plemeri/transparent-background).
 
 ## 2. OpenPose
 (1) Install OpenPose
