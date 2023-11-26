@@ -13,6 +13,50 @@ Please check the following notebook if you want to try on your own data
 > We reproduced all of the preprocessing steps on the above Colab. The instructions below will show you how to preprocess the data step by step.
 
 ## 1. Remove background
+This is our additional step to improve the model's accuracy. We used the transparent-background package to remove the background of both `./data/test/image` and `./data/test/cloth`. It's kind of easy to process, just follow the below instructions:
+
+(1) Install transparent-background package
+```
+!pip install transparent-background
+```
+
+(2) Run
+> [!IMPORTANT]
+> Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing) and paste its path in `ckpt={checkpoint_path}` before running the below code.
+> Change the path of `input_folder` and `output_folder` when removing cloth's background
+
+```
+import cv2
+import os
+import numpy as np
+from PIL import Image
+from transparent_background import Remover
+
+# Load model
+remover = Remover(fast=False, jit=False, device='cuda:0', ckpt={checkpoint_path})
+
+input_folder = {image_path}
+output_folder = {image_path}
+
+os.makedirs(output_folder, exist_ok=True)
+
+for filename in os.listdir(input_folder):
+    if filename.endswith('.jpg') or filename.endswith('.png'):
+        input_path = os.path.join(input_folder, filename)
+        output_path = os.path.join(output_folder, filename)
+
+        img = Image.open(input_path).convert('RGB')  # read image
+        out = remover.process(img, type='white')  # change backround with white color
+
+        # Convert the processed image to a NumPy array
+        out_np = np.array(out)
+
+        # Save the image using PIL
+        Image.fromarray(out_np).save(output_path)  # save result
+
+print("Finished.")
+```
+
 ## 2. OpenPose
 (1) Install OpenPose
 ```
@@ -97,6 +141,8 @@ If you want to use CPU, add `--opts MODEL.DEVICE cpu` to the end of the above co
 Then you can get results that look like
 
 ![](/figures/densepose.png)
+
+More details about the DensePose results can be found at [detectron2](https://github.com/facebookresearch/detectron2/tree/main/projects/DensePose).
 
 ## 4. Cloth Mask
 ## 5. Human Parse
