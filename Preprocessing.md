@@ -63,7 +63,10 @@ if not exists(project_name):
 Then JSON files will be saved under `../json_path` and images will be saved under `../img_path`.
 
 The image result looks like
+
 ![](/figures/14673_00_rendered.png)
+
+More details about the results can be found at [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose).
 
 ## 3. DensePose
 
