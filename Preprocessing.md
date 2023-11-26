@@ -70,7 +70,8 @@ More details about the results can be found at [OpenPose](https://github.com/CMU
 
 ## 3. DensePose
 (1) Get the repository of detectron2
-We've modified some code from the original repo of detectron2, you can get the modified version from this [link](https://drive.google.com/file/d/1wThrFf3NOzhgl2_L7AraKubZOKrs1lHd/view?usp=sharing).
+
+We've modified some code from the original repo of detectron2, you can get the modified version from this [link](https://drive.google.com/file/d/1wThrFf3NOzhgl2_L7AraKubZOKrs1lHd/view?usp=sharing), put it in your drive then unzip it into Colab.
 
 (2) Install dependencies
 ```
