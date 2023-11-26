@@ -69,6 +69,32 @@ The image result looks like
 More details about the results can be found at [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose).
 
 ## 3. DensePose
+(1) Get the repository of detectron2
+We've modified some code from the original repo of detectron2, you can get the modified version from this [link](https://drive.google.com/file/d/1wThrFf3NOzhgl2_L7AraKubZOKrs1lHd/view?usp=sharing).
+
+(2) Install dependencies
+```
+!python -m pip install -e detectron2
+```
+
+(3) Install packages for DensePose
+```
+%cd /content/detectron2/projects/DensePose
+!pip install av>=8.0.3 opencv-python-headless>=4.5.3.56 scipy>=1.5.4 torch torchvision
+%cd /content
+```
+
+(4) Run
+```
+!python /content/detectron2/projects/DensePose/apply_net_test.py \
+show /content/detectron2/projects/DensePose/configs/densepose_rcnn_R_50_FPN_s1x.yaml \
+https://dl.fbaipublicfiles.com/densepose/densepose_rcnn_R_50_FPN_s1x/165712039/model_final_162be9.pkl \
+{image_path} dp_segm -v
+```
+If you want to use CPU, add `--opts MODEL.DEVICE cpu` to the end of the above command.
+
+Then you can get results that look like
+
 
 
 ## 4. Cloth Mask
