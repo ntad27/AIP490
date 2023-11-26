@@ -96,7 +96,7 @@ If you want to use CPU, add `--opts MODEL.DEVICE cpu` to the end of the above co
 
 Then you can get results that look like
 
-
+![](/figures/densepose.png)
 
 ## 4. Cloth Mask
 ## 5. Human Parse
