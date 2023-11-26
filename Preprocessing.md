@@ -189,8 +189,29 @@ print("Finished.")
 
 Then you can get results that look like
 
-
+![](/figures/cloth_mask.png)
 
 ## 5. Human Parse
+This may be the hardest step. The authors used TensorFlow 1.x for this step and they had to create a virtual Python environment to run it, so it wouldn't be synchronized to other steps. Luckily we've been able to upgrade to TensorFlow 2.0, therefore it's easier for us to process.
+
+(1) Get the repository
+
+Get the zip file from this [link](https://drive.google.com/file/d/1eX_O-KflZe31eVOubsrwotpFFbwiK9mL/view?usp=sharing), put it in your drive then unzip it into Colab.
+
+(2) Install required packages
+
+```
+!pip install matplotlib opencv-python Pillow scipy
+!pip install ipykernel
+!pip install pandas
+!pip install -r /content/CIHP_PGN_v2/requirement.txt
+```
+
 ## 6. Parse Agnostic
+
+
 ## 7. Human Agnostic
+
+
+## Conclusion
+
