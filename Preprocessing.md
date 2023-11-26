@@ -4,13 +4,13 @@ According to the explanation from the authors in [Preprocessing.md](https://gith
 
 We've added one more preprocessing step and modified other steps in order to get better try-on results.
 
-Please check the following notebook if you want to try on your own data 
+Please check the following notebook for more details
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 > [!NOTE]
-> We reproduced all of the preprocessing steps on the above Colab. The instructions below will show you how to preprocess the data step by step.
+> We reproduced all of the preprocessing steps on Colab. The instructions below will show you how to preprocess the data step by step.
 
 ## 1. Remove background
 This is our additional step to improve the model's accuracy. We used the transparent-background package to remove the background of both `./data/test/image` and `./data/test/cloth`. It's kind of easy to process, just follow the below instructions:
@@ -23,7 +23,6 @@ This is our additional step to improve the model's accuracy. We used the transpa
 (2) Run
 > [!IMPORTANT]
 > Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
-
 ```
 import cv2
 import os
@@ -55,7 +54,6 @@ for filename in os.listdir(input_folder):
 
 print("Finished.")
 ```
-
 Just change the path of `input_folder` and `output_folder` when removing cloth's background.
 
 We've tried other methods but we found out this one gave the best results and was the easiest one to process. The package has some other usages, more details can be found at [transparent-background](https://github.com/plemeri/transparent-background).
@@ -152,7 +150,6 @@ We also used the transparent-background package for this step because it created
 
 > [!IMPORTANT]
 > Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
-
 ```
 import cv2
 import os
@@ -186,7 +183,6 @@ for filename in os.listdir(input_folder):
 
 print("Finished.")
 ```
-
 Then you can get results that look like
 
 ![](/figures/cloth_mask.png)
@@ -194,18 +190,58 @@ Then you can get results that look like
 ## 5. Human Parse
 This may be the hardest step. The authors used TensorFlow 1.x for this step and they had to create a virtual Python environment to run it, so it wouldn't be synchronized to other steps. Luckily we've been able to upgrade to TensorFlow 2.0, therefore it's easier for us to process.
 
-(1) Get the repository
-
-Get the zip file from this [link](https://drive.google.com/file/d/1eX_O-KflZe31eVOubsrwotpFFbwiK9mL/view?usp=sharing), put it in your drive then unzip it into Colab.
+(1) Get the zip file from this [link](https://drive.google.com/file/d/1eX_O-KflZe31eVOubsrwotpFFbwiK9mL/view?usp=sharing), put it in your drive then unzip it into Colab.
 
 (2) Install required packages
-
 ```
 !pip install matplotlib opencv-python Pillow scipy
 !pip install ipykernel
 !pip install pandas
 !pip install -r /content/CIHP_PGN_v2/requirement.txt
 ```
+
+> [!NOTE]
+> The below instructions are our proposed method, you can try other methods if that generate better results.
+
+(3) Resize images from `768 x 1024` to `192 x 256`
+
+We used [CIHP_PGN](https://github.com/Engineering-Course/CIHP_PGN) method for this step and it gives better performance on 192x256 images so we have to resize the images to 192x256 then upsize them back to 768x1024 later. You can use any resize method, this is our proposed one:
+```
+import os
+from PIL import Image
+
+def resize_images(input_dir, output_dir, new_size):
+    image_files = [f for f in os.listdir(input_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    for image_file in image_files:
+        input_image_path = os.path.join(input_dir, image_file)
+        output_image_path = os.path.join(output_dir, image_file)
+
+        image = Image.open(input_image_path)
+
+        resized_image = image.resize(new_size, Image.ANTIALIAS)
+
+        resized_image.save(output_image_path)
+
+input_dir = {image_path}
+output_dir = "/content/CIHP_PGN_v2/datasets/images"
+
+new_size = (192, 256)
+
+resize_images(input_dir, output_dir, new_size)
+```
+(4) Run
+```
+%cd /content/CIHP_PGN_v2
+!python inference_pgn.py
+%cd /content
+```
+(5) Create a folder to store visualize files (file ends with `_vis.png`) and move them into it. **The black images are what we really need** because their values are from 0-20 and consistent with the try-on generate model.
+
+(6) 
 
 ## 6. Parse Agnostic
 
