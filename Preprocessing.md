@@ -187,6 +187,10 @@ for filename in os.listdir(input_folder):
 print("Finished.")
 ```
 
+Then you can get results that look like
+
+
+
 ## 5. Human Parse
 ## 6. Parse Agnostic
 ## 7. Human Agnostic
