@@ -22,7 +22,7 @@ This is our additional step to improve the model's accuracy. We used the transpa
 
 (2) Run
 > [!IMPORTANT]
-> Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing) and paste its path in `ckpt={checkpoint_path}` before running the below code.
+> Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
 
 ```
 import cv2
@@ -148,6 +148,45 @@ Then you can get results that look like
 More details about the DensePose results can be found at [detectron2](https://github.com/facebookresearch/detectron2/tree/main/projects/DensePose).
 
 ## 4. Cloth Mask
+We also used the transparent-background package for this step because it created better results than the original one.
+
+> [!IMPORTANT]
+> Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
+
+```
+import cv2
+import os
+import numpy as np
+from PIL import Image
+from transparent_background import Remover
+
+# Load model
+remover = Remover(fast=False, jit=False, device='cuda:0', ckpt={checkpoint_path})
+
+input_folder = {cloth_path}
+output_folder = {cloth_mask_path}
+
+os.makedirs(output_folder, exist_ok=True)
+
+for filename in os.listdir(input_folder):
+    if filename.endswith('.jpg') or filename.endswith('.png'):
+        input_path = os.path.join(input_folder, filename)
+        output_path = os.path.join(output_folder, filename)
+
+        img = Image.open(input_path)  # read image
+        out = remover.process(img, type='map') # object map only
+
+        # Convert the processed image to a NumPy array
+        out_np = np.array(out)
+
+        im = Image.fromarray(out_np).convert('L')
+
+        # Save the image using PIL
+        im.save(output_path)  # save result
+
+print("Finished.")
+```
+
 ## 5. Human Parse
 ## 6. Parse Agnostic
 ## 7. Human Agnostic
