@@ -23,6 +23,7 @@ This is our additional step to improve the model's accuracy. We used the transpa
 (2) Run
 > [!IMPORTANT]
 > Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing) and paste its path in `ckpt={checkpoint_path}` before running the below code.
+
 > Change the path of `input_folder` and `output_folder` when removing cloth's background.
 
 ```
