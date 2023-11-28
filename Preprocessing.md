@@ -272,13 +272,207 @@ Here is the parse label and corresponding body parts. We'll leave it here in cas
 19 - Right-shoe
 ```
 
-(1) Install required packages
+(1) Install packages
 ```
 !pip install Pillow tqdm
 ```
+(2) Run
+```
+import json
+from os import path as osp
+import os
+import numpy as np
+from PIL import Image, ImageDraw
+from tqdm import tqdm
 
+def get_im_parse_agnostic(im_parse, pose_data, w=768, h=1024):
+    label_array = np.array(im_parse)
+    parse_upper = ((label_array == 5).astype(np.float32) +
+                    (label_array == 6).astype(np.float32) +
+                    (label_array == 7).astype(np.float32))
+    parse_neck = (label_array == 10).astype(np.float32)
+
+    r = 10
+    agnostic = im_parse.copy()
+
+    # mask arms
+    for parse_id, pose_ids in [(14, [2, 5, 6, 7]), (15, [5, 2, 3, 4])]:
+        mask_arm = Image.new('L', (w, h), 'black')
+        mask_arm_draw = ImageDraw.Draw(mask_arm)
+        i_prev = pose_ids[0]
+        for i in pose_ids[1:]:
+            if (pose_data[i_prev, 0] == 0.0 and pose_data[i_prev, 1] == 0.0) or (pose_data[i, 0] == 0.0 and pose_data[i, 1] == 0.0):
+                continue
+            mask_arm_draw.line([tuple(pose_data[j]) for j in [i_prev, i]], 'white', width=r*10)
+            pointx, pointy = pose_data[i]
+            radius = r*4 if i == pose_ids[-1] else r*15
+            mask_arm_draw.ellipse((pointx-radius, pointy-radius, pointx+radius, pointy+radius), 'white', 'white')
+            i_prev = i
+        parse_arm = (np.array(mask_arm) / 255) * (label_array == parse_id).astype(np.float32)
+        agnostic.paste(0, None, Image.fromarray(np.uint8(parse_arm * 255), 'L'))
+
+    # mask torso & neck
+    agnostic.paste(0, None, Image.fromarray(np.uint8(parse_upper * 255), 'L'))
+    agnostic.paste(0, None, Image.fromarray(np.uint8(parse_neck * 255), 'L'))
+
+    return agnostic
+
+
+if __name__ =="__main__":
+    data_path = {dataroot_path}
+    output_path = {parse_agnostic_path}
+
+    os.makedirs(output_path, exist_ok=True)
+
+    for im_name in tqdm(os.listdir(osp.join(data_path, 'image'))):
+
+        # load pose image
+        pose_name = im_name.replace('.jpg', '_keypoints.json')
+
+        try:
+            with open(osp.join(data_path, 'openpose_json', pose_name), 'r') as f:
+                pose_label = json.load(f)
+                pose_data = pose_label['people'][0]['pose_keypoints_2d']
+                pose_data = np.array(pose_data)
+                pose_data = pose_data.reshape((-1, 3))[:, :2]
+        except IndexError:
+            print(pose_name)
+            continue
+
+        # load parsing image
+        parse_name = im_name
+        parse_name = im_name.replace('.jpg', '.png')
+        im_parse = Image.open(osp.join(data_path, 'image-parse-v3', parse_name))
+        agnostic = get_im_parse_agnostic(im_parse, pose_data)
+        #parse_name = parse_name.replace("jpg","png")
+        agnostic.save(osp.join(output_path, parse_name))
+```
+You can check the results under `./test/image-parse-agnostic-v3.2`. Of course it's all black as well the `./test./image-parse-v3`. To ensure you're getting the right agnostic parse images, do below:
+```
+import numpy as np
+from PIL import Image
+
+im_ori = Image.open('./test/image-parse-v3/06868_00.png')
+im = Image.open('./test/image-parse-agnostic-v3.2/06868_00.png')
+print(np.unique(np.array(im_ori)))
+print(np.unique(np.array(im)))
+```
+The output may look like:
+```
+[ 0  2  5  9 10 13 14 15]
+[ 0  2  9 13 14 15]
+```
+You can also visualize it by:
+```
+np_im = np.array(im)
+np_im[np_im==2] = 151
+np_im[np_im==9] = 178
+np_im[np_im==13] = 191
+np_im[np_im==14] = 221
+np_im[np_im==15] = 246
+Image.fromarray(np_im)
+```
 
 ## 7. Human Agnostic
+Steps are almost the same as the **Parse Agnostic**.
+
+(1) Install packages (if you have installed them above you don't need to install them again)
+```
+!pip install Pillow tqdm
+```
+(2) Run
+```
+import json
+from os import path as osp
+import os
+import numpy as np
+from PIL import Image, ImageDraw
+from tqdm import tqdm
+
+def get_img_agnostic(img, parse, pose_data):
+    parse_array = np.array(parse)
+    parse_head = ((parse_array == 4).astype(np.float32) +
+                    (parse_array == 13).astype(np.float32) +
+                    (parse_array == 2).astype(np.float32))
+    parse_lower = ((parse_array == 9).astype(np.float32) +
+                    (parse_array == 12).astype(np.float32) +
+                    (parse_array == 16).astype(np.float32) +
+                    (parse_array == 17).astype(np.float32) +
+                    (parse_array == 18).astype(np.float32) +
+                    (parse_array == 19).astype(np.float32))
+
+
+    agnostic = img.copy()
+    agnostic_draw = ImageDraw.Draw(agnostic)
+
+    length_a = np.linalg.norm(pose_data[5] - pose_data[2])
+    length_b = np.linalg.norm(pose_data[12] - pose_data[9])
+    point = (pose_data[9] + pose_data[12]) / 2
+    pose_data[9] = point + (pose_data[9] - point) / length_b * length_a
+    pose_data[12] = point + (pose_data[12] - point) / length_b * length_a
+    r = int(length_a / 16) + 1
+
+    # mask arms
+    agnostic_draw.line([tuple(pose_data[i]) for i in [2, 5]], 'gray', width=r*10)
+    for i in [2, 5]:
+        pointx, pointy = pose_data[i]
+        agnostic_draw.ellipse((pointx-r*5, pointy-r*5, pointx+r*5, pointy+r*5), 'gray', 'gray')
+    for i in [3, 4, 6, 7]:
+        if (pose_data[i - 1, 0] == 0.0 and pose_data[i - 1, 1] == 0.0) or (pose_data[i, 0] == 0.0 and pose_data[i, 1] == 0.0):
+            continue
+        agnostic_draw.line([tuple(pose_data[j]) for j in [i - 1, i]], 'gray', width=r*10)
+        pointx, pointy = pose_data[i]
+        agnostic_draw.ellipse((pointx-r*5, pointy-r*5, pointx+r*5, pointy+r*5), 'gray', 'gray')
+
+    # mask torso
+    for i in [9, 12]:
+        pointx, pointy = pose_data[i]
+        agnostic_draw.ellipse((pointx-r*3, pointy-r*6, pointx+r*3, pointy+r*6), 'gray', 'gray')
+    agnostic_draw.line([tuple(pose_data[i]) for i in [2, 9]], 'gray', width=r*6)
+    agnostic_draw.line([tuple(pose_data[i]) for i in [5, 12]], 'gray', width=r*6)
+    agnostic_draw.line([tuple(pose_data[i]) for i in [9, 12]], 'gray', width=r*12)
+    agnostic_draw.polygon([tuple(pose_data[i]) for i in [2, 5, 12, 9]], 'gray', 'gray')
+
+    # mask neck
+    pointx, pointy = pose_data[1]
+    agnostic_draw.rectangle((pointx-r*7, pointy-r*7, pointx+r*7, pointy+r*7), 'gray', 'gray')
+    agnostic.paste(img, None, Image.fromarray(np.uint8(parse_head * 255), 'L'))
+    agnostic.paste(img, None, Image.fromarray(np.uint8(parse_lower * 255), 'L'))
+
+    return agnostic
+
+if __name__ =="__main__":
+    data_path = {dataroot_path}
+    output_path = {human_agnostic_path}
+
+    os.makedirs(output_path, exist_ok=True)
+
+    for im_name in tqdm(os.listdir(osp.join(data_path, 'image'))):
+
+        # load pose image
+        pose_name = im_name.replace('.jpg', '_keypoints.json')
+
+        try:
+            with open(osp.join(data_path, 'openpose_json', pose_name), 'r') as f:
+                pose_label = json.load(f)
+                pose_data = pose_label['people'][0]['pose_keypoints_2d']
+                pose_data = np.array(pose_data)
+                pose_data = pose_data.reshape((-1, 3))[:, :2]
+        except IndexError:
+            print(pose_name)
+            continue
+
+        # load parsing image
+        im = Image.open(osp.join(data_path, 'image', im_name))
+        label_name = im_name.replace('.jpg', '.png')
+        im_label = Image.open(osp.join(data_path, 'image-parse-v3', label_name))
+
+        agnostic = get_img_agnostic(im, im_label, pose_data)
+
+        agnostic.save(osp.join(output_path, im_name))
+```
+The results will look like:
+
 
 
 ## Conclusion
