@@ -245,7 +245,69 @@ resize_images(input_dir, output_dir, new_size)
 ```
 (5) Store the visualize files (file ends with `_vis.png`) in `./image-parse-v3-visualize`. **The black images are what we really need** because their values are from 0-20 and are consistent with the model.
 
-(6) 
+(6) Upscale the black images from `192 x 256` back to `768 x 1024`
+
+We've tried other normal resize methods to upscale the black images, but it causes the problem that the values were changed. Then when we use the wrong Human Parse results to run the HR-VITON model, it will create pixelated edges around the image. So we used the interpolate method to upscale from 192x256 to 768x1024 because it kept the same values of the black images.
+```
+from PIL import Image
+import os
+
+def resize_image(image, new_width, new_height):
+    # Get the original image size
+    width, height = image.size
+
+    # Create new image with new size
+    new_image = Image.new("L", (new_width, new_height), 'black')
+
+    # Calculate the resize ratio
+    width_ratio = width / new_width
+    height_ratio = height / new_height
+
+    # Browse each pixel in the new photo
+    for y in range(new_height):
+        for x in range(new_width):
+
+            # Calculate the corresponding coordinates in the original image
+            src_x = int(x * width_ratio)
+            src_y = int(y * height_ratio)
+
+            # Get the value of the pixel in the original image
+            pixel = image.getpixel((src_x, src_y))
+
+            # Set the value for pixels in the new image
+            new_image.putpixel((x, y), pixel)
+
+    return new_image
+
+# Input and output folders
+input_folder = "/content/CIHP_PGN_v2/output/cihp_parsing_maps/"
+output_folder = {human_parse_path}
+
+# Make sure the output folder exists
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+# List all image files in the input folder
+image_files = [f for f in os.listdir(input_folder) if f.endswith(".png")]
+
+# Loop through each image file and resize it
+for image_file in image_files:
+
+    # Open the original image
+    original_image = Image.open(os.path.join(input_folder, image_file))
+
+    # Specify the new width and height (e.g., multiply by 4)
+    new_width = original_image.width * 4
+    new_height = original_image.height * 4
+
+    # Resize the image
+    resized_image = resize_image(original_image, new_width, new_height)
+
+    # Save the resized image in the output folder
+    resized_image.save(os.path.join(output_folder, image_file))
+
+print("All images processed and saved.")
+```
 
 ## 6. Parse Agnostic
 Here is the parse label and corresponding body parts. We'll leave it here in case you need it.
