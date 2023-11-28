@@ -473,7 +473,11 @@ if __name__ =="__main__":
 ```
 The results will look like:
 
-
+![](/figures/human_agnostic.png)
 
 ## Conclusion
+Thank you for reading. It's not easy to get all this done. Before you run the HR-VITON model with your preprocessed data, note that each person's image needs a corresponding cloth image even though it's not used while inference. If you don't want this behavior, feel free to change the source code manually or just add some random images with the same name as person images. After it's all done, suppose you're testing 5 people images and 3 cloth images, which are all unpaired, you should end up with 3 images under `./cloth` and 3 images under `./cloth-mask`; 5 images under each other dirs: `agnostic-v3.2`, `image`, `image-densepose`, `image-parse-agnostic-v3.2`, `image-parse-v3`, `openpose_img` and `openpose_json`.
+
+The complete result will looks like this:
+
 
