@@ -243,7 +243,7 @@ resize_images(input_dir, output_dir, new_size)
 !python inference_pgn.py
 %cd /content
 ```
-(5) Create a folder to store visualize files (file ends with `_vis.png`) and move them into it. **The black images are what we really need** because their values are from 0-20 and are consistent with the model.
+(5) Store the visualize files (file ends with `_vis.png`) in `./image-parse-v3-visualize`. **The black images are what we really need** because their values are from 0-20 and are consistent with the model.
 
 (6) 
 
@@ -251,7 +251,7 @@ resize_images(input_dir, output_dir, new_size)
 Here is the parse label and corresponding body parts. We'll leave it here in case you need it.
 ```
 0 - Background
-1 - hat
+1 - Hat
 2 - Hair
 3 - Glove
 4 - Sunglasses
@@ -271,7 +271,6 @@ Here is the parse label and corresponding body parts. We'll leave it here in cas
 18 - Left-shoe
 19 - Right-shoe
 ```
-
 (1) Install packages
 ```
 !pip install Pillow tqdm
