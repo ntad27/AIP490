@@ -10,7 +10,8 @@ Please check the following notebook for more details
 </a>
 
 You should first create these folders and put them under `./data/test` when you want to test the model, or `./data/train` when you want to retrain it.
-![](/figures/densepose.png)
+
+![](/figures/folders.png)
 
 > [!NOTE]
 > We reproduced all of the preprocessing steps on Colab. The instructions below will show you how to preprocess the data step by step.
