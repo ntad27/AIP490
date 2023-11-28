@@ -9,6 +9,9 @@ Please check the following notebook for more details
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+You should first create these folders and put them under `./data/test` when you want to test the model, or `./data/train` when you want to retrain it.
+![](/figures/densepose.png)
+
 > [!NOTE]
 > We reproduced all of the preprocessing steps on Colab. The instructions below will show you how to preprocess the data step by step.
 
@@ -244,6 +247,34 @@ resize_images(input_dir, output_dir, new_size)
 (6) 
 
 ## 6. Parse Agnostic
+Here is the parse label and corresponding body parts. We'll leave it here in case you need it.
+```
+0 - Background
+1 - hat
+2 - Hair
+3 - Glove
+4 - Sunglasses
+5 - Upper-clothes
+6 - Dress
+7 - Coat
+8 - Socks
+9 - Pants
+10 - Tosor-skin
+11 - Scarf
+12 - Skirt
+13 - Face
+14 - Left-arm
+15 - Right-arm
+16 - Left-leg
+17 - Right-leg
+18 - Left-shoe
+19 - Right-shoe
+```
+
+(1) Install required packages
+```
+!pip install Pillow tqdm
+```
 
 
 ## 7. Human Agnostic
