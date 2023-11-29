@@ -103,13 +103,16 @@ def Evaluation(opt, pred_list, gt_list):
                 scores.append(entropy(pyx, py))
             split_scores.append(np.exp(np.mean(scores)))
 
-        IS_mean, IS_std = np.mean(split_scores), np.std(split_scores)
+        # IS_mean, IS_std = np.mean(split_scores), np.std(split_scores)
+        IS_mean = np.mean(split_scores)
     f = open(os.path.join(opt.predict_dir, 'eval.txt'), 'a')
     f.write(f"SSIM : {avg_ssim} / MSE : {avg_mse} / LPIPS : {avg_distance}\n")
-    f.write(f"IS_mean : {IS_mean} / IS_std : {IS_std}\n")
+    # f.write(f"IS_mean : {IS_mean} / IS_std : {IS_std}\n")
+    f.write(f"IS_mean : {IS_mean}\n")
     
     f.close()
-    return avg_ssim, avg_mse, avg_distance, IS_mean, IS_std
+    # return avg_ssim, avg_mse, avg_distance, IS_mean, IS_std
+    return avg_ssim, avg_mse, avg_distance, IS_mean
 
 
 
