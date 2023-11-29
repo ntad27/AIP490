@@ -32,7 +32,7 @@ We used [Anvil](https://anvil.works/) to build the web app demo, please check th
 
 ## Train try-on condition generator
 ```
-python train_condition.py --name {} --cuda {True} --gpu_ids {gpu_ids} --dataroot {dataroot_path} --datamode train --data_list {path_to_trainpairs.txt} --keep_step 300000 --Ddownx2 --Ddropout --lasttvonly --interflowloss --occlusion
+python train_condition.py --name test --cuda {True} --gpu_ids {gpu_ids} --dataroot {dataroot_path} --datamode train --data_list {path_to_trainpairs.txt} --keep_step 300000 --Ddownx2 --Ddropout --lasttvonly --interflowloss --occlusion
 ```
 
 ## Train try-on image generator
