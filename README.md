@@ -1,11 +1,12 @@
 # AIP490 - Virtual Shirt Fitting Model Based on Deep Learning and Computer Vision
 
 ## Dataset
-We train and evaluate our model using the dataset from [HR-VITON — Official PyTorch Implementation](https://drive.google.com/file/d/11d1IKZ-jsK9mx0BSQmxrEqLxAA00C3IO/view?usp=drive_link).
+We train and evaluate our model using the dataset from [HR-VITON — Official PyTorch Implementation](https://drive.google.com/file/d/11d1IKZ-jsK9mx0BSQmxrEqLxAA00C3IO/view?usp=drive_link) and [Dress Code](https://github.com/aimagelab/dress-code).
 
 To download the datasets, please check the following links:
-- Our preprocessed dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing)
-- Authors' preprocessed dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
+- Our preprocessed HR-VITON dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing)
+- Authors' preprocessed HR-VITON dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
+- We cannot provide you with the Dress Code Dataset due to copyright issues. But you can get it by filling out the [request form](https://docs.google.com/forms/d/e/1FAIpQLSeWVzxWcj3JSALtthuw-2QDAbf2ymiK37sA4pRQD4tZz2vqsw/viewform) then the author will email you for more detailed instructions.
 
 We assume that you have downloaded it into `./data`.
 
