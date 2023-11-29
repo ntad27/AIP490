@@ -38,3 +38,4 @@ To use "--fp16" option, you should install the [apex](https://github.com/NVIDIA/
 ## Acknowledgements
 - https://github.com/sangyun884/HR-VITON
 - https://github.com/shadow2496/VITON-HD
+- https://github.com/aimagelab/dress-code
