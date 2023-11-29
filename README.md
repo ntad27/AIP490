@@ -3,7 +3,7 @@
 ## Model's architecture
 The pictures below show the architecture of the model from the data preprocessing step to the main HR-VITON model we used in this project.
 
-![]()
+![](/figures/full contrucs 2.png)
 
 ## Dataset
 We train and evaluate our model using the dataset from [HR-VITON — Official PyTorch Implementation](https://drive.google.com/file/d/11d1IKZ-jsK9mx0BSQmxrEqLxAA00C3IO/view?usp=drive_link) and [Dress Code](https://github.com/aimagelab/dress-code).
