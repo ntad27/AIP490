@@ -19,7 +19,7 @@ Here are the download links for each model checkpoint:
 - We assume that you have downloaded all of the checkpoints into `./eval_models/weights/v0.1`.
 
 We used [Anvil](https://anvil.works/) to build the web app demo, please check the following notebook for detailed instructions 
-<a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
+<a target="_blank" href="https://colab.research.google.com/drive/1qyTB0-70KAorx3VmVFkNo3QVZ35gJGYm?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
