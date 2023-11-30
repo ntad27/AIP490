@@ -25,7 +25,7 @@ Here are the download links for each model checkpoint:
 - Try-on image generator: [link](https://drive.google.com/file/d/1LBkpO5HO3KYUGSXU_SNeQfWOarUh5lTO/view?usp=sharing)
 - We assume that you have obtained all the checkpoints and stored them in `./eval_models/weights/v0.1`.
 
-We used [Anvil](https://anvil.works/) to build the web app demo, please check the following notebook for detailed instructions 
+We've built a web app demo, please check the following notebook for detailed instructions 
 <a target="_blank" href="https://colab.research.google.com/drive/1qyTB0-70KAorx3VmVFkNo3QVZ35gJGYm?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
