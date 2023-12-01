@@ -15,7 +15,7 @@ To download the datasets, please check the following links:
 - Authors' preprocessed HR-VITON dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
 - We cannot provide you with the Dress Code Dataset due to copyright issues. But you can get it by filling out the [request form](https://docs.google.com/forms/d/e/1FAIpQLSeWVzxWcj3JSALtthuw-2QDAbf2ymiK37sA4pRQD4tZz2vqsw/viewform) then the author will email you for more detailed instructions.
 
-After you download the dataset, put it under `./data`.
+After you download the dataset, create a `./data` folder and put it under.
 
 If you want to know more about how we preprocess the data, please check the [Preprocessing.md](https://github.com/ntad27/AIP490/blob/main/Preprocessing.md)
 
