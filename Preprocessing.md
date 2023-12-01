@@ -209,7 +209,7 @@ This may be the hardest step. The authors used TensorFlow 1.x for this step and 
 
 (3) Resize images from `768 x 1024` to `192 x 256`
 
-We used [CIHP_PGN](https://github.com/Engineering-Course/CIHP_PGN) method for this step and it gives better performance on 192x256 images so we have to resize the images to 192x256 then upsize them back to 768x1024 later. You can use any resize method, this is our proposed one:
+We used [CIHP_PGN](https://github.com/Engineering-Course/CIHP_PGN) for this step and it gives better performance on 192x256 images so we have to resize the images to 192x256 then upsize them back to 768x1024 later. You can use any resize method, this is our proposed one:
 ```
 import os
 from PIL import Image
