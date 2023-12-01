@@ -213,12 +213,12 @@ class CPDataset(data.Dataset):
         # load densepose
         densepose_name = im_name.replace('image', 'image-densepose')
         densepose_map = Image.open(osp.join(self.data_path, densepose_name))
-        densepose_map = transforms.Resize(self.fine_width, interpolation=InterpolationMode.BILINEAR)(densepose_map)
+        densepose_map = transforms.Resize(self.fine_width, interpolation=2)(densepose_map)
         densepose_map = self.transform(densepose_map)  # [-1,1]
 
         # agnostic
         agnostic = self.get_agnostic(im_pil_big, im_parse_pil_big, pose_data)
-        agnostic = transforms.Resize(self.fine_width, interpolation=InterpolationMode.BILINEAR)(agnostic)
+        agnostic = transforms.Resize(self.fine_width, interpolation=2)(agnostic)
         agnostic = self.transform(agnostic)
 
 
