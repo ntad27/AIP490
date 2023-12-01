@@ -46,3 +46,7 @@ To use "--fp16" option, you should install the [apex](https://github.com/NVIDIA/
 - https://github.com/sangyun884/HR-VITON
 - https://github.com/shadow2496/VITON-HD
 - https://github.com/aimagelab/dress-code
+- https://github.com/plemeri/transparent-background
+- https://github.com/CMU-Perceptual-Computing-Lab/openpose
+- https://github.com/facebookresearch/detectron2/tree/main/projects/DensePose
+- https://github.com/Engineering-Course/CIHP_PGN
