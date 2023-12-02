@@ -541,4 +541,4 @@ Thank you for reading. It's not easy to get all this done. Before you run the HR
 
 The complete result will look like this:
 
-![](/figures/01_01.png)
+![](/figures/00055_00_11351_00.png)
