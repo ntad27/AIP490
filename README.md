@@ -21,8 +21,9 @@ If you want to know more about how we preprocess the data, please check the [Pre
 
 ## Inference
 Here are the download links for each model checkpoint:
-- Try-on condition generator: [link](https://drive.google.com/file/d/1l81F7eShSg5mOorpwY5xEWla06KaQ76Y/view?usp=sharing)
-- Try-on image generator: [link](https://drive.google.com/file/d/1LBkpO5HO3KYUGSXU_SNeQfWOarUh5lTO/view?usp=sharing)
+- Author's try-on condition generator: [link](https://drive.google.com/file/d/1l81F7eShSg5mOorpwY5xEWla06KaQ76Y/view?usp=sharing)
+- Our retrain 30000 steps try-on condition generator: [link]()
+- Author's try-on image generator: [link](https://drive.google.com/file/d/1LBkpO5HO3KYUGSXU_SNeQfWOarUh5lTO/view?usp=sharing)
 - We assume that you have obtained all the checkpoints and stored them in `./eval_models/weights/v0.1`.
 
 We've built a web app demo, please check the following notebook for detailed instructions 
