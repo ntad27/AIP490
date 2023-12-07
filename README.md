@@ -13,7 +13,6 @@ We train and evaluate our model using the dataset from [HR-VITON — Official Py
 To download the datasets, please check the following links:
 - Our preprocessed HR-VITON dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing)
 - Authors' preprocessed HR-VITON dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
-- We cannot provide you with the Dress Code Dataset due to copyright issues. But you can get it by filling out the [request form](https://docs.google.com/forms/d/e/1FAIpQLSeWVzxWcj3JSALtthuw-2QDAbf2ymiK37sA4pRQD4tZz2vqsw/viewform) then the author will email you for more detailed instructions.
 
 After you download the dataset, create a `./data` folder and put it under.
 
