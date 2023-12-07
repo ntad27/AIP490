@@ -1,18 +1,18 @@
 # AIP490 - Virtual Shirt Fitting Model Based on Deep Learning and Computer Vision
 
 ## Model's architecture
-The pictures below show the architecture of the model from the data preprocessing step to the main HR-VITON model we used in this project.
+The figures below show the architecture of the model from the data preprocessing step to the main [HR-VITON](https://github.com/sangyun884/HR-VITON) model we used in this project.
 
 ![Data preprocessing flow](/figures/preprocessing.png)
 
 ![Main HR-VITON models](/figures/main_model.png)
 
 ## Dataset
-We train and evaluate our model using the dataset from [HR-VITON — Official PyTorch Implementation](https://drive.google.com/file/d/11d1IKZ-jsK9mx0BSQmxrEqLxAA00C3IO/view?usp=drive_link) and [Dress Code](https://github.com/aimagelab/dress-code).
+We train and evaluate our model using the dataset from [High-Resolution Virtual Try-On with Misalignment and Occlusion-Handled Conditions](https://github.com/sangyun884/HR-VITON), the original dataset was from [VITON-HD: High-Resolution Virtual Try-On via Misalignment-Aware Normalization](https://github.com/shadow2496/VITON-HD).
 
-To download the datasets, please check the following links:
-- Our preprocessed HR-VITON dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing)
-- Authors' preprocessed HR-VITON dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
+To download the dataset, please check the following links:
+- Our preprocessed dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing)
+- Authors' preprocessed dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
 
 After you download the dataset, create a `./data` folder and put it under.
 
@@ -43,9 +43,10 @@ python train_generator.py --cuda {True} --name test -b 4 -j 8 --gpu_ids {gpu_ids
 To use "--fp16" option, you should install the [apex](https://github.com/NVIDIA/apex.git) library.
 
 ## Acknowledgements
+- Tran Ngoc Xuan Tin
+- Duong Vien Thach
 - https://github.com/sangyun884/HR-VITON
 - https://github.com/shadow2496/VITON-HD
-- https://github.com/aimagelab/dress-code
 - https://github.com/plemeri/transparent-background
 - https://github.com/CMU-Perceptual-Computing-Lab/openpose
 - https://github.com/facebookresearch/detectron2/tree/main/projects/DensePose
