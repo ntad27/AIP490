@@ -1,8 +1,8 @@
 # Data preprocessing
 
-According to the explanation from the authors in [Preprocessing.md](https://github.com/sangyun884/HR-VITON/blob/main/Preprocessing.md). At least 6 steps are needed for getting all the required inputs of the model. Thanks to this [detailed instructions](https://github.com/sangyun884/HR-VITON/issues/45), we have reproduced all of the required preprocessing steps.
+According to the explanation from the author in [Preprocessing.md](https://github.com/sangyun884/HR-VITON/blob/main/Preprocessing.md). At least 6 steps are needed for getting all the required inputs of the model. Thanks to this [detailed instructions](https://github.com/sangyun884/HR-VITON/issues/45), we have reproduced all of the required preprocessing steps.
 
-We've added one more preprocessing step and modified other steps in order to get better try-on results.
+We've added one more preprocessing step and modified other steps to get better try-on results.
 
 Please check the following notebook for more details
 <a target="_blank" href="https://colab.research.google.com/drive/1nmDHjGH3HKEmawXWdyooWNcGBl9qtFv8?usp=sharing">
@@ -58,7 +58,7 @@ for filename in os.listdir(input_folder):
 
 print("Finished.")
 ```
-Just change the path of `input_folder` and `output_folder` when removing cloth's background.
+Just change the path of `input_folder` and `output_folder` when removing the cloth's background.
 
 We've tried other methods but we found out this one gave the best results and was the easiest one to process. The package has some other usages, more details can be found at [transparent-background](https://github.com/plemeri/transparent-background).
 
@@ -150,7 +150,7 @@ Then you can get results that look like
 More details about the DensePose results can be found at [detectron2](https://github.com/facebookresearch/detectron2/tree/main/projects/DensePose).
 
 ## 4. Cloth Mask
-We also used the transparent-background package for this step because it created better results than the original one.
+We also used the [transparent-background](https://github.com/plemeri/transparent-background) package for this step because it created better results than the original one.
 
 > [!IMPORTANT]
 > Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
@@ -192,7 +192,7 @@ Then you can get results that look like
 ![](/figures/cloth_mask.png)
 
 ## 5. Human Parse
-This may be the hardest step. The authors used TensorFlow 1.x for this step and they had to create a virtual Python environment to run it, so it wouldn't be synchronized to other steps. Luckily we've been able to upgrade to TensorFlow 2.0, therefore it's easier for us to process.
+This may be the hardest step. The author used TensorFlow 1.15 for this step and they had to create a virtual Python environment to run it, so it wouldn't be synchronized to other steps. Luckily we've been able to upgrade to TensorFlow 2.0, therefore it's easier for us to process.
 
 (1) Get the zip file from this [link](https://drive.google.com/file/d/1eX_O-KflZe31eVOubsrwotpFFbwiK9mL/view?usp=sharing), put it in your drive then unzip it into Colab.
 
@@ -243,7 +243,7 @@ resize_images(input_dir, output_dir, new_size)
 !python inference_pgn.py
 %cd /content
 ```
-(5) Store the visualize files (file ends with `_vis.png`) in `./image-parse-v3-visualize`. **The black images are what we really need** because their values are from 0-20 and are consistent with the model.
+(5) Store the visualize files (file ends with `_vis.png`) in `./image-parse-v3-visualize`. **The black images are what we need** because their values are from 0-20 and are consistent with the model.
 
 (6) Upscale the black images from `192 x 256` back to `768 x 1024`
 
@@ -408,7 +408,7 @@ if __name__ =="__main__":
         #parse_name = parse_name.replace("jpg","png")
         agnostic.save(osp.join(output_path, parse_name))
 ```
-You can check the results under `./test/image-parse-agnostic-v3.2`. Of course it's all black as well the `./test./image-parse-v3`. To ensure you're getting the right agnostic parse images, do below:
+You can check the results under `./test/image-parse-agnostic-v3.2`. Of course, it's all black as well as the `./test./image-parse-v3`. To ensure you're getting the right agnostic parse images, do the following:
 ```
 import numpy as np
 from PIL import Image
@@ -537,8 +537,12 @@ The results will look like:
 ![](/figures/human_agnostic.png)
 
 # Conclusion
-Thank you for reading. It's not easy to get all this done. Before you run the HR-VITON model with your preprocessed data, note that each person's image needs a corresponding cloth image even though it's not used while inference. If you don't want this behavior, feel free to change the source code manually or just add some random images with the same name as person images. After it's all done, suppose you're testing 5 people images and 3 cloth images, which are all unpaired, you should end up with 3 images under `./cloth` and 3 images under `./cloth-mask`; 5 images under each other dirs: `agnostic-v3.2`, `image`, `image-densepose`, `image-parse-agnostic-v3.2`, `image-parse-v3`, `openpose_img` and `openpose_json`. Once again, thanks for the [detailed instructions](https://github.com/sangyun884/HR-VITON/issues/45) that helped us complete this data preprocessing step.
+Thank you for reading. It's not easy to get all this done. Before you run the HR-VITON model with your preprocessed data, note that each person's image needs a corresponding cloth image even though it's not used during inference. If you don't want this behavior, change the source code manually or add random images with the same name as person images. After it's all done, suppose you're testing 5 people images and 3 cloth images, which are all unpaired, you should end up with 3 images under `./cloth` and 3 images under `./cloth-mask`; 5 images under each other dirs: `agnostic-v3.2`, `image`, `image-densepose`, `image-parse-agnostic-v3.2`, `image-parse-v3`, `openpose_img` and `openpose_json`. Once again, thanks for the [detailed instructions](https://github.com/sangyun884/HR-VITON/issues/45) that helped us complete this data preprocessing step.
 
 The complete result will look like this:
 
 ![](/figures/00055_00_11351_00.png)
+
+The architecture of our proposed preprocessing step looks like this:
+
+![](/figures/preprocessing.png)
