@@ -3,7 +3,7 @@
 ## Model's architecture
 The figures below show the architecture of the model from the data preprocessing step to the main [HR-VITON](https://github.com/sangyun884/HR-VITON) model we used in this project.
 
-![Data preprocessing flow](/figures/preprocessing.png)
+![Data preprocessing flow](/figures/base.png)
 
 ![Main HR-VITON models](/figures/main_model.png)
 
