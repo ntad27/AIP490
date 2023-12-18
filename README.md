@@ -8,9 +8,7 @@ The figures below show the architecture of the model from the data preprocessing
 ## Dataset
 We train and evaluate our model using the dataset from [High-Resolution Virtual Try-On with Misalignment and Occlusion-Handled Conditions](https://github.com/sangyun884/HR-VITON), the original dataset was from [VITON-HD: High-Resolution Virtual Try-On via Misalignment-Aware Normalization](https://github.com/shadow2496/VITON-HD).
 
-To download the dataset, please check the following links:
-- Our preprocessed dataset: [link](https://drive.google.com/file/d/1iHoiyTnRF2lMFN95f37s8-4G2-Plp5Zb/view?usp=sharing)
-- Authors' preprocessed dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
+To download the author's dataset, please check the following [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
 
 After you download the dataset, create a `./data` folder and put it under.
 
@@ -41,8 +39,8 @@ python train_generator.py --cuda {True} --name test -b 4 -j 8 --gpu_ids {gpu_ids
 To use "--fp16" option, you should install the [apex](https://github.com/NVIDIA/apex.git) library.
 
 ## Acknowledgements
-- Tran Ngoc Xuan Tin
-- Duong Vien Thach
+- Tran Ngoc Xuan Tin (tintnxse150422@fpt.edu.vn)
+- Duong Vien Thach (thachdvse150534@fpt.edu.vn)
 - https://github.com/sangyun884/HR-VITON
 - https://github.com/shadow2496/VITON-HD
 - https://github.com/plemeri/transparent-background
