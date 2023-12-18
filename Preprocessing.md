@@ -545,4 +545,4 @@ The complete result will look like this:
 
 The architecture of our proposed preprocessing step looks like this:
 
-![](/figures/preprocessing.png)
+![](/figures/preprocessing.jpeg)
