@@ -3,9 +3,7 @@
 ## Model's architecture
 The figures below show the architecture of the model from the data preprocessing step to the main [HR-VITON](https://github.com/sangyun884/HR-VITON) model we used in this project.
 
-![Data preprocessing flow](/figures/base.png)
-
-![Main HR-VITON models](/figures/main_model.png)
+![Main flow](/figures/base.png)
 
 ## Dataset
 We train and evaluate our model using the dataset from [High-Resolution Virtual Try-On with Misalignment and Occlusion-Handled Conditions](https://github.com/sangyun884/HR-VITON), the original dataset was from [VITON-HD: High-Resolution Virtual Try-On via Misalignment-Aware Normalization](https://github.com/shadow2496/VITON-HD).
