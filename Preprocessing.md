@@ -103,7 +103,7 @@ if not exists(project_name):
     f.close()
   !cd openpose && rm -rf build || true && mkdir build && cd build && cmake .. -DUSE_CUDNN=OFF && make -j`nproc`
 ```
-(2) Get all needed models then put them in `./openpose/models`. You can get all of it from this [link](https://drive.google.com/file/d/15Ir-yP6dYupibzO7sJCBEyWy9Y0AdZFR/view?usp=sharing).
+(2) Get all needed models then put them in `./openpose/models`. You can get all of it from this [link](https://drive.google.com/file/d/156FW-gVN0940ll-6w2TKmCEdzLEBmU8M/view?usp=sharing).
 
 (3) Run
 ```
