@@ -10,7 +10,7 @@ We train and evaluate our model using the dataset from [High-Resolution Virtual 
 
 To download the datasets, please check the links below:
 - Author's dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
-- Our preprocessed dataset: [link](https://drive.google.com/file/d/1bpNhkTnnPaZhSFxpVFus4kBS558e-vfu/view?usp=sharing)
+- Our preprocessed dataset: [link](https://drive.google.com/file/d/1_AMHvjTO2imBRqUUbwcLDwqmpLOoaIFF/view?usp=sharing)
 
 After you download the dataset, create a `./data` folder and put it under.
 
