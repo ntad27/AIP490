@@ -9,7 +9,7 @@ The figures below show the architecture of the model from the data preprocessing
 We train and evaluate our model using the dataset from [High-Resolution Virtual Try-On with Misalignment and Occlusion-Handled Conditions](https://github.com/sangyun884/HR-VITON), the original dataset was from [VITON-HD: High-Resolution Virtual Try-On via Misalignment-Aware Normalization](https://github.com/shadow2496/VITON-HD).
 
 To download the datasets, please check the links below:
-- Author's dataset: [link](https://drive.google.com/file/d/190xa7nb92KNWc4EF9pxP0YJ8pWu1NkU8/view?usp=sharing)
+- Author's dataset: [link](https://www.dropbox.com/s/10bfat0kg4si1bu/zalando-hd-resized.zip?dl=0)
 - Our preprocessed dataset: [link](https://drive.google.com/file/d/1_AMHvjTO2imBRqUUbwcLDwqmpLOoaIFF/view?usp=sharing)
 
 After you download the dataset, create a `./data` folder and put it under.
@@ -18,9 +18,9 @@ If you want to know more about how we preprocess the data, please check the [Pre
 
 ## Inference
 Here are the download links for each model checkpoint:
-- Author's try-on condition generator: [link](https://drive.google.com/file/d/1l81F7eShSg5mOorpwY5xEWla06KaQ76Y/view?usp=drive_link)
+- Author's try-on condition generator: [link](https://drive.google.com/file/d/1XJTCdRBOPVgVTmqzhVGFAgMm2NLkw5uQ/view)
 - Our retrain 30000 steps try-on condition generator: [link](https://drive.google.com/file/d/1WcH0E-W6DKEFQhD5FpKNVpWxmfaJtSL5/view?usp=sharing)
-- Author's try-on image generator: [link](https://drive.google.com/file/d/1LBkpO5HO3KYUGSXU_SNeQfWOarUh5lTO/view?usp=drive_link)
+- Author's try-on image generator: [link](https://drive.google.com/file/d/1T5_YDUhYSSKPC_nZMk2NeC-XXUFoYeNy/view)
 - We assume that you have obtained all the checkpoints and stored them in `./eval_models/weights/v0.1`.
 
 We've built a web app demo, please check the following notebook for detailed instructions 
