@@ -194,7 +194,7 @@ Then you can get results that look like
 ## 5. Human Parse
 This may be the hardest step. The author used TensorFlow 1.15 for this step and they had to create a virtual Python environment to run it, so it wouldn't be synchronized to other steps. Luckily we've been able to upgrade to TensorFlow 2.0, therefore it's easier for us to process.
 
-(1) Get the zip file from this [link](https://drive.google.com/file/d/1eX_O-KflZe31eVOubsrwotpFFbwiK9mL/view?usp=sharing), put it in your drive then unzip it into Colab.
+(1) Get the zip file from this [link](https://drive.google.com/file/d/1-B4As2m0B3H7O4fuMzHUGPAlM4j44Wmd/view?usp=sharing), put it in your drive then unzip it into Colab.
 
 (2) Install required packages
 ```
