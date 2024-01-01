@@ -26,7 +26,7 @@ This is our additional step to improve the model's accuracy. We used the transpa
 
 (2) Run
 > [!IMPORTANT]
-> Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
+> Remember to download [the checkpoint](https://drive.google.com/file/d/1-lrPirjdWT3-SQMtmShwakyAMW4TBe4v/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
 ```
 import cv2
 import os
