@@ -26,7 +26,7 @@ This is our additional step to improve the model's accuracy. We used the transpa
 
 (2) Run
 > [!IMPORTANT]
-> Remember to download [the checkpoint](https://drive.google.com/file/d/1-lrPirjdWT3-SQMtmShwakyAMW4TBe4v/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
+> Remember to download [the checkpoint](https://drive.google.com/file/d/1W92qUtCTfXsE9NYQ_nonBV2iNHLr3V1Y/view?usp=drive_link), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
 ```
 import cv2
 import os
@@ -103,7 +103,7 @@ if not exists(project_name):
     f.close()
   !cd openpose && rm -rf build || true && mkdir build && cd build && cmake .. -DUSE_CUDNN=OFF && make -j`nproc`
 ```
-(2) Get all needed models then put them in `./openpose/models`. You can get all of it from this [link](https://drive.google.com/file/d/156FW-gVN0940ll-6w2TKmCEdzLEBmU8M/view?usp=sharing).
+(2) Get all needed models then put them in `./openpose/models`. You can get all of it from this [link](https://drive.google.com/file/d/14I-rmbU89HCIvaYN-xHb7NgT5hTdfIhT/view?usp=drive_link).
 
 (3) Run
 ```
@@ -120,7 +120,7 @@ More details about the results can be found at [OpenPose](https://github.com/CMU
 ## 3. DensePose
 (1) Get the repository of detectron2
 
-We've modified some code from the original repo of detectron2, you can get the modified version from this [link](https://drive.google.com/file/d/1-5uxtJAsWJCrjDmylIbsTUxDWYYnjf5P/view?usp=sharing), put it in your drive then unzip it into Colab.
+We've modified some code from the original repo of detectron2, you can get the modified version from this [link](https://drive.google.com/file/d/1RMaHARzNIwKr0DXC6zRgC3yJqKcYYJMs/view?usp=drive_link), put it in your drive then unzip it into Colab.
 
 (2) Install dependencies
 ```
@@ -153,7 +153,7 @@ More details about the DensePose results can be found at [detectron2](https://gi
 We also used the [transparent-background](https://github.com/plemeri/transparent-background) package for this step because it created better results than the original one.
 
 > [!IMPORTANT]
-> Remember to download [the checkpoint](https://drive.google.com/file/d/12QZJJ26JyOELd5ERsbMOxaCIDl-6rJzW/view?usp=sharing), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
+> Remember to download [the checkpoint](https://drive.google.com/file/d/1W92qUtCTfXsE9NYQ_nonBV2iNHLr3V1Y/view?usp=drive_link), put it in your drive then paste its path in `ckpt={checkpoint_path}` before running the below code.
 ```
 import cv2
 import os
@@ -194,7 +194,7 @@ Then you can get results that look like
 ## 5. Human Parse
 This may be the hardest step. The author used TensorFlow 1.15 for this step and they had to create a virtual Python environment to run it, so it wouldn't be synchronized to other steps. Luckily we've been able to upgrade to TensorFlow 2.0, therefore it's easier for us to process.
 
-(1) Get the zip file from this [link](https://drive.google.com/file/d/1-B4As2m0B3H7O4fuMzHUGPAlM4j44Wmd/view?usp=sharing), put it in your drive then unzip it into Colab.
+(1) Get the zip file from this [link](https://drive.google.com/file/d/1SQEa7Q9K64FW8a80qpMvShNnDDkeZg33/view?usp=drive_link), put it in your drive then unzip it into Colab.
 
 (2) Install required packages
 ```
