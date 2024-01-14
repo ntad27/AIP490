@@ -10,7 +10,7 @@ We train and evaluate our model using the dataset from [High-Resolution Virtual 
 
 To download the datasets, please check the links below:
 - Author's dataset: [link](https://www.dropbox.com/s/10bfat0kg4si1bu/zalando-hd-resized.zip?dl=0)
-- Our preprocessed dataset: [link](https://drive.google.com/file/d/1_AMHvjTO2imBRqUUbwcLDwqmpLOoaIFF/view?usp=sharing)
+- Our preprocessed dataset: [link](https://drive.google.com/file/d/1BfllrLC3ucci_fUWMVtfKRW4r0Uav5mW/view?usp=drive_link)
 
 After you download the dataset, create a `./data` folder and put it under.
 
@@ -19,7 +19,7 @@ If you want to know more about how we preprocess the data, please check the [Pre
 ## Inference
 Here are the download links for each model checkpoint:
 - Author's try-on condition generator: [link](https://drive.google.com/file/d/1XJTCdRBOPVgVTmqzhVGFAgMm2NLkw5uQ/view)
-- Our retrain 30000 steps try-on condition generator: [link](https://drive.google.com/file/d/1WcH0E-W6DKEFQhD5FpKNVpWxmfaJtSL5/view?usp=sharing)
+- Our retrain 30000 steps try-on condition generator: [link](https://drive.google.com/file/d/1WUSQAH62oUK7hndsXlWQssOovux2zJLV/view?usp=drive_link)
 - Author's try-on image generator: [link](https://drive.google.com/file/d/1T5_YDUhYSSKPC_nZMk2NeC-XXUFoYeNy/view)
 - We assume that you have obtained all the checkpoints and stored them in `./eval_models/weights/v0.1`.
 
